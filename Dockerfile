@@ -9,6 +9,6 @@ ENV JAVA_OPTS=""
 
 WORKDIR /opt
 
-COPY target/spring-boot-admin-0.0.1-SNAPSHOT.jar spring-boot-admin-0.0.1-SNAPSHOT.jar
+COPY target/spring-boot-admin-0.0.1-SNAPSHOT.jar ./
 
 ENTRYPOINT exec java -Xms${JVM_XMS} -Xmx${JVM_XMX} ${JAVA_OPTS} -jar spring-boot-admin-0.0.1-SNAPSHOT.jar "$@"
