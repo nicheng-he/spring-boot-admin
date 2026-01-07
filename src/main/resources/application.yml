@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: nacos-service
+    name: spring-boot-admin
   security:
     user:
       name: ${login.username:admin}
