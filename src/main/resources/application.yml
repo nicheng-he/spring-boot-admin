@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nacos-service
+  security:
+    user:
+      name: ${login.username:admin}
+      password: ${login.password:123456}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_ADDRESS:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:public}
+        group: ${NACOS_GROUP:DEFAULT_GROUP}
+        cluster-name: ${NACOS_CLUSTER_NAME:DEFAULT}
+        endpoint: ${NACOS_ENDPOINT:}
+        access-key: ${NACOS_ACCESS_KEY:}
+        secret-key: ${NACOS_SECRET_KEY:}
+        username: ${NACOS_USERNAME:}
+        password: ${NACOS_PASSWORD:}
+        metadata:
+          management.context-path: ${server.servlet.context-path}${management.endpoints.web.base-path}
+          user.name: ${spring.security.user.name:}
+          user.password: ${spring.security.user.password:}
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /monitor
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
